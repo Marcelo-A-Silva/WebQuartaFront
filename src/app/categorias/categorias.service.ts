@@ -45,6 +45,14 @@ export class CategoriasService {
   }
 
 
+  alterar(categoria: Categoria): Promise<any>{
+    return this.http.put(this.categoriasURL+'/'+categoria.id, categoria)
+    .toPromise();
+  }
+
+  buscarPorCodigo(codigo: number): Promise<Categoria> {
+    return this.http.get<Categoria>(this.categoriasURL+'/'+codigo).toPromise();
+  }
 
 
 }
